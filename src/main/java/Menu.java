@@ -1,9 +1,8 @@
-import javax.ejb.EJB;
 import javax.persistence.*;
 
 @Entity
 @Table(name = "Menu")
-public class Menu extends  BaseEntity {
+public class Menu  {
 
     private static final long serialVersionUID=1L;
 
@@ -19,16 +18,17 @@ public class Menu extends  BaseEntity {
     private Double price;
 
     @Column
-    private Double wight;
+    private Integer weight;
 
     @Column
     private Boolean discount;
 
-
-
-
-
-
+    public Menu(String name, Double price, Integer weight, Boolean discount) {
+        this.name = name;
+        this.price = price;
+        this.weight = weight;
+        this.discount = discount;
+    }
 
     public Menu() {
     }
@@ -39,7 +39,7 @@ public class Menu extends  BaseEntity {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +
-                ", wight=" + wight +
+                ", weight=" + weight +
                 ", discount=" + discount +
                 '}';
     }
@@ -68,12 +68,12 @@ public class Menu extends  BaseEntity {
         this.price = price;
     }
 
-    public Double getWight() {
-        return wight;
+    public Integer getWeight() {
+        return weight;
     }
 
-    public void setWight(Double wight) {
-        this.wight = wight;
+    public void setWeight(Integer weight) {
+        this.weight = weight;
     }
 
     public Boolean getDiscount() {
